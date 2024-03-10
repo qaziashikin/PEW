@@ -6,7 +6,11 @@ MonoImporter:
   defaultReferences:
   - originalMaterial: {instanceID: 0}
   - flashMaterial: {instanceID: 0}
+<<<<<<< Updated upstream
   - deathParticlesPrefab: {instanceID: 0}
+=======
+  - deathParticlesPrefab: {fileID: 7691968630979130034, guid: 1e073126fa7a246e297570fd4efcbe30, type: 3}
+>>>>>>> Stashed changes
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -16,7 +16,8 @@ public class Katana : MonoBehaviour
             Target target = other.GetComponent<Target>();
             if (target != null)
             {
-                target.Flash(); // Make sure the Target script has a method named Flash
+                // target.Flash(); // Make sure the Target script has a method named Flash
+                target.MakeInvisibleAndBack();
             }
 
             // Call AddScore on the score system, passing damage as points

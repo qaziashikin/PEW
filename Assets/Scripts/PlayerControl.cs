@@ -16,6 +16,13 @@ public class PlayerControl : MonoBehaviour
     public WeaponSwitching weaponSwitchingHand;
     public WeaponSwitching weaponSwitchingController;
 
+    public AudioSource audio1;
+
+
+    void Start()
+    {
+    }
+
     void Update()
     {
         DetermineActiveWeaponSwitching();
@@ -78,6 +85,7 @@ public class PlayerControl : MonoBehaviour
 
     public void MakeFlashingTargetsInvisible()
     {
+
         // Find all game objects with the Target script attached
         Target[] targets = FindObjectsOfType<Target>();
 
@@ -88,9 +96,24 @@ public class PlayerControl : MonoBehaviour
             {
                 //flashingTargets.Add(target.gameObject);
                 target.GetComponent<Target>().MakeInvisibleAndBack();
+                // audioSource.PlayOneShot(explosionSound);
+                audio1.Play();
+                int scoreToAdd = 0;
+                if (target.CompareTag("Robot"))
+                {
+                    scoreToAdd = 120; // Score value for Robot
+                }
+                else if (target.CompareTag("Drone"))
+                {
+                    scoreToAdd = 240; // Score value for Drone
+                }
+
+                target.GetComponent<Target>().MakeInvisibleAndBack();
+                score.AddScore(scoreToAdd);
             }
 
         }
+
     }
 
     void FindClosestTargetAndFlash()

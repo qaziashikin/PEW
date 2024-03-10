@@ -12,6 +12,7 @@ public class ScoreSystem : MonoBehaviour
     public Text timeText; // Change this line
     public Text finalMessageText; // Change this line
 
+    public AudioSource audio2;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class ScoreSystem : MonoBehaviour
     {
         score += points;
         UpdateScoreText();
+        audio2.Play();
     }
 
     // Method to update the score text UI

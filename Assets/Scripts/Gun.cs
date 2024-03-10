@@ -6,13 +6,15 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 1f;
+    public bool isPistol = false;
 
     public ParticleSystem muzzleFlash;
     public ScoreSystem score;
 
     private Transform shootingPoint;
     private float nextTimeToFire = 0f;
-
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
     void Start()
     {
         // Find the shooting point child object
@@ -39,6 +41,12 @@ public class Gun : MonoBehaviour
     void Shoot()
     {
         muzzleFlash.Play();
+        if (isPistol){
+            audioSource1.Play();
+        } else {
+            audioSource2.Play();
+        }
+        
         // Check if the shooting point is found
         if (shootingPoint != null)
         {
@@ -50,7 +58,8 @@ public class Gun : MonoBehaviour
                 Target target = hit.transform.GetComponent<Target>();
                 if (hit.collider.CompareTag("Target") || hit.collider.CompareTag("Robot"))
                 {
-                    target.Flash();
+                    // target.Flash();
+                    target.MakeInvisibleAndBack();
                     // Call AddScore on the player script, passing damage as points
                     score.AddScore((int)damage);
                 }

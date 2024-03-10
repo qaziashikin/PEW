@@ -3,6 +3,7 @@ using UnityEngine;
 public class WeaponSwitching : MonoBehaviour
 {
     public int selectedWeapon = 0;
+    public AudioSource audioSource3;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class WeaponSwitching : MonoBehaviour
         {
             selectedWeapon = weaponIndex;
             SelectWeapon();
+            audioSource3.Play();
         }
     }
 }

@@ -93,7 +93,7 @@ public class Target : MonoBehaviour
         {
             Debug.LogError("Death particles prefab not assigned.");
         }
-        StartCoroutine(InvisibleAfterDelay(0.5f));
+        StartCoroutine(InvisibleAfterDelay(0.2f));
     }
 
     IEnumerator InvisibleAfterDelay(float delay)
