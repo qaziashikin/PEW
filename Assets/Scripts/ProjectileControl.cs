@@ -11,7 +11,9 @@ public class ProjectileControl : MonoBehaviour
         if(collision.gameObject.tag != "Bullet" && !collided)
         {
             collided = true;
+        
             Destroy(gameObject);
+            Debug.Log("hello");
         }
     }
 }

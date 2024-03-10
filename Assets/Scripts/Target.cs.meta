@@ -3,7 +3,10 @@ guid: 1fb2fda3fd3adce4b9108462bfb58f29
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - originalMaterial: {instanceID: 0}
+  - flashMaterial: {instanceID: 0}
+  - deathParticlesPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

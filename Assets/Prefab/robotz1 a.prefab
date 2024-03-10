@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 111035169446346324}
   - component: {fileID: 6588552884210488840}
   - component: {fileID: -6745242198657271598}
-  - component: {fileID: 1753426588666106164}
+  - component: {fileID: 823908154915963617}
   m_Layer: 0
   m_Name: robotz1 a
   m_TagString: Robot
@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390887919667286}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.694, y: 0.225, z: -3.827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -172,22 +172,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalMaterial: {fileID: 2100000, guid: a1e6ac6581d32944f98b634f4b74fc0a, type: 2}
   flashMaterial: {fileID: 2100000, guid: b866b2dafaa16594eb8198d65a1b8363, type: 2}
-  invisibleMaterial: {fileID: 0}
---- !u!114 &1753426588666106164
-MonoBehaviour:
+  deathParticles: {fileID: 2860527240310560639, guid: 730997e1be6e44402b51c9d79f50dd6c, type: 3}
+--- !u!54 &823908154915963617
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390887919667286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddbf0ce2caed6ae449ab54db062718cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Route: {fileID: 0}
-  IsLoop: 1
-  SpeedMove: 1
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1555637674791542
 GameObject:
   m_ObjectHideFlags: 0

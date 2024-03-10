@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23591096314124236}
   - component: {fileID: 135218830989817858}
   - component: {fileID: 5028569329304587556}
+  - component: {fileID: -9112754897230781847}
   m_Layer: 0
   m_Name: robotz2 a
   m_TagString: Target
@@ -121,3 +122,18 @@ MonoBehaviour:
   Route: {fileID: 0}
   IsLoop: 1
   SpeedMove: 1
+--- !u!114 &-9112754897230781847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475476556799310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb2fda3fd3adce4b9108462bfb58f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalMaterial: {fileID: 0}
+  flashMaterial: {fileID: 0}
+  deathParticles: {fileID: 2860527240310560639, guid: 730997e1be6e44402b51c9d79f50dd6c, type: 3}

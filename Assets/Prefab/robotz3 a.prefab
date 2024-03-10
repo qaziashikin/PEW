@@ -280,7 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalMaterial: {fileID: 2100000, guid: a1e6ac6581d32944f98b634f4b74fc0a, type: 2}
   flashMaterial: {fileID: 2100000, guid: 2664aa71df85e7247a08e331bb6d23df, type: 2}
-  invisibleMaterial: {fileID: 0}
+  deathParticles: {fileID: 2860527240310560639, guid: 730997e1be6e44402b51c9d79f50dd6c, type: 3}
 --- !u!1 &1891911858093598
 GameObject:
   m_ObjectHideFlags: 0

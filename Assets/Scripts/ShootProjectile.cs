@@ -27,6 +27,7 @@ public class ShootProjectile : MonoBehaviour
         {
             timeToFire = Time.time + 1/fireRate;
             Shoot(); 
+            Debug.Log("lalala");
         }
         
     }
