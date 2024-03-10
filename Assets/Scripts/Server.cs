@@ -63,11 +63,6 @@ public class UnityUDPServer : MonoBehaviour
                         });
 
                 }
-
-                // Example response
-                string responseMessage = "Hello from Unity UDP Server. You are connected.";
-                byte[] responseBytes = Encoding.ASCII.GetBytes(responseMessage);
-                listenerSocket.SendTo(responseBytes, senderRemote);
             }
         }
         catch (Exception e)
