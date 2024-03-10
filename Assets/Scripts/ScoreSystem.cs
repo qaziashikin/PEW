@@ -8,7 +8,7 @@ public class ScoreSystem : MonoBehaviour
     // public TextMeshProUGUI scoreText; // Assign this in the inspector with your UI Text element
     public int score = 0; // Initial score
     public Text scoreBoardText;
-    private int time = 3;
+    private int time = 45;
     public Text timeText; // Change this line
     public Text finalMessageText; // Change this line
 
