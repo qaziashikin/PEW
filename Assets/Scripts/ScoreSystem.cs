@@ -6,6 +6,7 @@ public class ScoreSystem : MonoBehaviour
 {
     // public TextMeshProUGUI scoreText; // Assign this in the inspector with your UI Text element
     private int score = 0; // Initial score
+    public Text scoreBoardText;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class ScoreSystem : MonoBehaviour
     // Method to update the score text UI
     private void UpdateScoreText()
     {
-       /* scoreText.text = "Score: " + score.ToString();*/
-        Debug.Log("Current Score: " + score);
+        scoreBoardText.text = "Score: " + score.ToString();
+        // Debug.Log("Current Score: " + score);
     }
 }
