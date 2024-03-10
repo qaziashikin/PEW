@@ -65,21 +65,7 @@ public class Target : MonoBehaviour
 
             yield return new WaitForSeconds(flashRate);
         }
-        
-        // // Change to the flash material for all found MeshRenderers
-        // foreach (var renderer in allRenderers)
-        // {
-        //     renderer.material = flashMaterial;
-        // }
 
-        // //yield return new WaitForSeconds(0.5f); // Wait for 0.5 seconds
-        // yield return new WaitForSeconds(2f); // Wait for 2 seconds
-
-        // // Revert to the original material for all found MeshRenderers
-        // foreach (var renderer in allRenderers)
-        // {
-        //     renderer.material = originalMaterial;
-        // }
         yield return new WaitForSeconds(0.01f); // Wait for 0.01 seconds
         IsFlashing = false;
     }
@@ -92,12 +78,6 @@ public class Target : MonoBehaviour
 
     IEnumerator InvisibleAfterDelay(float delay)
     {
-        /* // Optionally, start your flash routine here if you want it to run during the delay
-         StartCoroutine(FlashRoutine());
-
-         // Wait for the specified delay
-         yield return new WaitForSeconds(delay);*/
-
         // Make the game object invisible
         SetVisibility(false);
 

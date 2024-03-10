@@ -40,7 +40,7 @@ public class UnityUDPServer : MonoBehaviour
                 string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                 Debug.Log($"Received message: {message} from {senderRemote.ToString()}");
 
-                if (message == "1")
+                if (message == "1") // Switch weapons
                 {
                     UnityMainThreadDispatcher.Instance.Enqueue(() =>
                     {
@@ -48,7 +48,7 @@ public class UnityUDPServer : MonoBehaviour
                         weaponIndex = (weaponIndex + 1) % 3;
                     });
                 }
-                if (message == "2")
+                if (message == "2") // AOE
                 {
                     UnityMainThreadDispatcher.Instance.Enqueue(() =>
                     {
@@ -61,7 +61,6 @@ public class UnityUDPServer : MonoBehaviour
                         {
                             playerControl.GetComponent<PlayerControl>().MakeFlashingTargetsInvisible();
                         });
-
                 }
             }
         }

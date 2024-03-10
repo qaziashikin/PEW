@@ -29,13 +29,12 @@ public class Gun : MonoBehaviour
         // Apply the modified rotation back to the transform
         transform.eulerAngles = currentRotation;
 
-        if (Time.time >= nextTimeToFire) 
+        if (Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
     }
-
 
     void Shoot()
     {
@@ -56,7 +55,6 @@ public class Gun : MonoBehaviour
                     score.AddScore((int)damage);
                 }
             }
-
         }
     }
 }

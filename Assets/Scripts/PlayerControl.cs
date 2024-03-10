@@ -4,18 +4,17 @@ using System.Collections.Generic;
 
 public class PlayerControl : MonoBehaviour
 {
-    public WeaponSwitching weaponSwitchingController;
-    public WeaponSwitching weaponSwitchingHand;
-    public MotorImagery childActivator;
-    public Camera mainCamera;
+    public float maxDistance = 10f;
     public float maxViewDistance = 100f;
     public float fieldOfViewAngle = 60f;
-    public ScoreSystem score;
-    public float maxDistance = 10f;
-
-    public WeaponSwitching activeWeaponSwitching;
-    private float timer = 0f;
     private float interval = 2f;
+    private float timer = 0f;
+    public Camera mainCamera;
+    public MotorImagery childActivator;
+    public ScoreSystem score;
+    public WeaponSwitching activeWeaponSwitching;
+    public WeaponSwitching weaponSwitchingHand;
+    public WeaponSwitching weaponSwitchingController;
 
     void Update()
     {
@@ -46,7 +45,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             // Assuming the first child is at index 0
-            //AOE
+            // AOE
             childActivator.ActivateChild(0, 16);
         }
         if (Input.GetKeyDown(KeyCode.R))
@@ -59,10 +58,8 @@ public class PlayerControl : MonoBehaviour
             MakeClosestTargetInvisibleAndBack();
         }
 
-
         // Accumulate time
         timer += Time.deltaTime;
-
 
         // Check if the timer has reached the interval
         if (timer >= interval)
@@ -77,8 +74,6 @@ public class PlayerControl : MonoBehaviour
         {
             MakeFlashingTargetsInvisible();
         }
-
-
     }
 
     public void MakeFlashingTargetsInvisible()
@@ -97,7 +92,6 @@ public class PlayerControl : MonoBehaviour
 
         }
     }
-
 
     void FindClosestTargetAndFlash()
     {
