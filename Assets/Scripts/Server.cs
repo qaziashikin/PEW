@@ -55,6 +55,14 @@ public class UnityUDPServer : MonoBehaviour
                         playerControl.childActivator.ActivateChild(0, 16);
                     });
                 }
+                if (message == "3")
+                {
+                    UnityMainThreadDispatcher.Instance.Enqueue(() =>
+                        {
+                            playerControl.GetComponent<PlayerControl>().MakeFlashingTargetsInvisible();
+                        });
+
+                }
 
                 // Example response
                 string responseMessage = "Hello from Unity UDP Server. You are connected.";

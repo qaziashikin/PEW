@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class PlayerControl : MonoBehaviour
     public float maxViewDistance = 100f;
     public float fieldOfViewAngle = 60f;
     public ScoreSystem score;
+    public float maxDistance = 10f;
 
     public WeaponSwitching activeWeaponSwitching;
+    private float timer = 0f;
+    private float interval = 2f;
 
     void Update()
     {
@@ -42,6 +46,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             // Assuming the first child is at index 0
+            //AOE
             childActivator.ActivateChild(0, 16);
         }
         if (Input.GetKeyDown(KeyCode.R))
@@ -53,6 +58,84 @@ public class PlayerControl : MonoBehaviour
         {
             MakeClosestTargetInvisibleAndBack();
         }
+
+
+        // Accumulate time
+        timer += Time.deltaTime;
+
+
+        // Check if the timer has reached the interval
+        if (timer >= interval)
+        {
+            // Reset the timer
+            timer = 0f;
+            FindClosestTargetAndFlash();
+        }
+
+        // find flashing targets and kill
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            MakeFlashingTargetsInvisible();
+        }
+
+
+    }
+
+    public void MakeFlashingTargetsInvisible()
+    {
+        // Find all game objects with the Target script attached
+        Target[] targets = FindObjectsOfType<Target>();
+
+        // Check if IsFlashing is true for each target
+        foreach (Target target in targets)
+        {
+            if (target.IsFlashing)
+            {
+                //flashingTargets.Add(target.gameObject);
+                target.GetComponent<Target>().MakeInvisibleAndBack();
+            }
+
+        }
+    }
+
+
+    void FindClosestTargetAndFlash()
+    {
+        GameObject[] robots = GameObject.FindGameObjectsWithTag("Robot");
+        GameObject[] drones = GameObject.FindGameObjectsWithTag("Drone");
+        GameObject[] targets = new GameObject[robots.Length + drones.Length];
+        robots.CopyTo(targets, 0);
+        drones.CopyTo(targets, robots.Length);
+        Vector3 cameraPosition = mainCamera.transform.position;
+        Vector3 cameraForward = mainCamera.transform.forward;
+
+        GameObject closestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+
+        foreach (GameObject target in targets)
+        {
+            Vector3 directionToTarget = target.transform.position - cameraPosition;
+            float angle = Vector3.Angle(directionToTarget, cameraForward);
+
+            // Check if the angle is within the range of -90 to 90 degrees
+            if (angle >= -90f && angle <= 90f)
+            {
+                float sqrDistanceToTarget = directionToTarget.sqrMagnitude;
+
+                // Update the closest target if necessary
+                if (sqrDistanceToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = sqrDistanceToTarget;
+                    closestTarget = target;
+                }
+            }
+        }
+
+        if (closestTarget != null)
+        {
+            closestTarget.GetComponent<Target>().Flash();
+        }
+
     }
 
     void MakeClosestTargetInvisibleAndBack()
@@ -68,7 +151,7 @@ public class PlayerControl : MonoBehaviour
         GameObject closestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         float smallestAngle = 180f;
-        
+
 
         foreach (GameObject target in targets)
         {
