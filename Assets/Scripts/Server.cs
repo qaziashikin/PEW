@@ -22,7 +22,7 @@ public class UnityUDPServer : MonoBehaviour
 
     void RunServer()
     {
-        const int port = 65432;
+        const int port = 24103;
         var localEndPoint = new IPEndPoint(IPAddress.Any, port);
 
         try
@@ -48,9 +48,16 @@ public class UnityUDPServer : MonoBehaviour
                         weaponIndex = (weaponIndex + 1) % 3;
                     });
                 }
+                if (message == "2")
+                {
+                    UnityMainThreadDispatcher.Instance.Enqueue(() =>
+                    {
+                        playerControl.childActivator.ActivateChild(0, 16);
+                    });
+                }
 
                 // Example response
-                string responseMessage = "Hello from Unity UDP Server!";
+                string responseMessage = "Hello from Unity UDP Server. You are connected.";
                 byte[] responseBytes = Encoding.ASCII.GetBytes(responseMessage);
                 listenerSocket.SendTo(responseBytes, senderRemote);
             }
