@@ -50,9 +50,9 @@ public class TCPClient : MonoBehaviour
             if (receivedMessage == "1")
             {
                 playerControl.activeWeaponSwitching.SetSelectedWeapon(weaponIndex);
-                weaponIndex= (weaponIndex+1)%3;
+                weaponIndex = (weaponIndex + 1) % 3;
             }
-            
+
         }
     }
 
