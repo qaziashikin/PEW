@@ -2,6 +2,8 @@
 **For Neureality Hackathon 2024**
 
 [DevPost here](https://devpost.com/software/pew-r0eipd)
+
+[YouTube Demo here](https://youtu.be/FOS9B_nDQvM)
 #### Created by: Eris Gao, Christopher Ades, Qazi Ashikin, Leah Kim, Pranay Talla
 
 
