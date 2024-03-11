@@ -8,7 +8,7 @@ public class ScoreSystem : MonoBehaviour
     // public TextMeshProUGUI scoreText; // Assign this in the inspector with your UI Text element
     public int score = 0; // Initial score
     public Text scoreBoardText;
-    private int time = 45;
+    private int time = 10;
     public Text timeText; // Change this line
     public Text finalMessageText; // Change this line
 
@@ -31,7 +31,7 @@ public class ScoreSystem : MonoBehaviour
     // Method to update the score text UI
     private void UpdateScoreText()
     {
-        scoreBoardText.text = "Score: " + score.ToString();
+        scoreBoardText.text = "             Score: " + score.ToString();
         // Debug.Log("Current Score: " + score);
     }
 
@@ -40,7 +40,7 @@ public class ScoreSystem : MonoBehaviour
     {
         while (time >= 0)
         {
-            timeText.text = "Time: " + time.ToString();
+            timeText.text = "Time: " + time.ToString() + "             ";
             yield return new WaitForSeconds(1);
             time--; // Decrease time each second
 
@@ -55,7 +55,7 @@ public class ScoreSystem : MonoBehaviour
 
     void DisplayFinalMessage()
     {
-        finalMessageText.text = "Game over. Your final score was: " + score.ToString();
+        finalMessageText.text = "Game over. \nScore: \n" + score.ToString();
         Application.Quit();
     }
 }
