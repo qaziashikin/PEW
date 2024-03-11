@@ -15,6 +15,10 @@ public class Gun : MonoBehaviour
     private float nextTimeToFire = 0f;
     public AudioSource audioSource1;
     public AudioSource audioSource2;
+
+    public GameObject bulletPrefab; 
+    public float shootForce;
+
     void Start()
     {
         // Find the shooting point child object
@@ -50,13 +54,17 @@ public class Gun : MonoBehaviour
         // Check if the shooting point is found
         if (shootingPoint != null)
         {
+
+            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            rb.AddForce(shootingPoint.forward * shootForce, ForceMode.Impulse);
             RaycastHit hit;
 
             // Cast ray from shooting point's position and forward direction
             if (Physics.Raycast(shootingPoint.position, shootingPoint.forward, out hit, range))
             {
                 Target target = hit.transform.GetComponent<Target>();
-                if (hit.collider.CompareTag("Target") || hit.collider.CompareTag("Robot"))
+                if (target != null && hit.collider.CompareTag("Target") || hit.collider.CompareTag("Robot"))
                 {
                     // target.Flash();
                     target.MakeInvisibleAndBack();

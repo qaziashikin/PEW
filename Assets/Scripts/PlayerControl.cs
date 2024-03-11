@@ -168,7 +168,7 @@ public class PlayerControl : MonoBehaviour
         GameObject closestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         float smallestAngle = 180f;
-
+        float maxDistance = 10f;
 
         foreach (GameObject target in targets)
         {
@@ -176,13 +176,16 @@ public class PlayerControl : MonoBehaviour
             float angle = Vector3.Angle(directionToTarget, cameraForward);
             float sqrDistanceToTarget = directionToTarget.sqrMagnitude;
 
-            if (angle <= smallestAngle)
+            if (sqrDistanceToTarget <= maxDistance * maxDistance)
             {
-                if (angle < smallestAngle || (angle == smallestAngle && sqrDistanceToTarget < closestDistanceSqr))
+                if (angle < smallestAngle)
                 {
-                    smallestAngle = angle;
-                    closestDistanceSqr = sqrDistanceToTarget;
-                    closestTarget = target;
+                    if(angle < smallestAngle || (angle == smallestAngle && sqrDistanceToTarget < closestDistanceSqr))
+                    {
+                        smallestAngle = angle;
+                        closestDistanceSqr = sqrDistanceToTarget;
+                        closestTarget = target;
+                    }
                 }
             }
         }
