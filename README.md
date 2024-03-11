@@ -14,7 +14,7 @@ Open the folder PEWProject in Unity, go to Build Settings and select Android as 
 ### How to connect the two platforms
 In Unity, the application will be running as a UDP server, constantly listening for new messages.
 
-On the BCI signal processing side, when you run the **something.py script**, it will act as a UDP client, sending messages to the Unity UDP server.
+On the BCI signal processing side, when you run the **something.py script**, it will act as a UDP client, sending messages to the Unity UDP server. After the EMG signal is processed, the “client” will attempt to bind to the “server."
 
 To be able to communicate successfully, both the VR headset and the computer that is running the Python file must be connected to the same network. The user running the Python file should make sure to update the IP address in the UDP client with the **IPv4 address** of the VR headset. The ports should also be the same. 
 
